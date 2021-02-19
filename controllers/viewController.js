@@ -7,7 +7,7 @@ const catchAsync = require('../utils/catchAsync');
 exports.home = catchAsync(async (req, res, next) => {
 	const upcoming = await axios({
 		method: 'GET',
-		url: 'https://katescleaning.herokuapp.com/api/v1/shifts/upcoming',
+		url: 'https://katesdemo.herokuapp.com/api/v1/shifts/upcoming',
 		params: {
 			limit: 4,
 		},
@@ -15,7 +15,7 @@ exports.home = catchAsync(async (req, res, next) => {
 
 	const past = await axios({
 		method: 'GET',
-		url: 'https://katescleaning.herokuapp.com/api/v1/shifts/past',
+		url: 'https://katesdemo.herokuapp.com/api/v1/shifts/past',
 		params: {
 			limit: 4,
 		},
@@ -53,7 +53,7 @@ exports.addUser = (req, res, next) => {
 exports.getShifts = catchAsync(async (req, res, next) => {
 	const response = await axios({
 		method: 'GET',
-		url: `https://katescleaning.herokuapp.com/api/v1/shifts?page=${req.query.page}`,
+		url: `https://katesdemo.herokuapp.com/api/v1/shifts?page=${req.query.page}`,
 	});
 
 	res.status(200).render('shifts', {
@@ -66,7 +66,7 @@ exports.getShifts = catchAsync(async (req, res, next) => {
 exports.upcomingShifts = catchAsync(async (req, res, next) => {
 	const response = await axios({
 		method: 'GET',
-		url: 'https://katescleaning.herokuapp.com/api/v1/shifts/upcoming',
+		url: 'https://katesdemo.herokuapp.com/api/v1/shifts/upcoming',
 		params: {
 			page: req.query.page * 1,
 		},
@@ -83,7 +83,7 @@ exports.upcomingShifts = catchAsync(async (req, res, next) => {
 exports.pastShifts = catchAsync(async (req, res, next) => {
 	const response = await axios({
 		method: 'GET',
-		url: 'https://katescleaning.herokuapp.com/api/v1/shifts/past',
+		url: 'https://katesdemo.herokuapp.com/api/v1/shifts/past',
 		params: {
 			page: req.query.page * 1,
 		},
@@ -100,7 +100,7 @@ exports.pastShifts = catchAsync(async (req, res, next) => {
 exports.unpaidShifts = catchAsync(async (req, res, next) => {
 	const response = await axios({
 		method: 'GET',
-		url: 'https://katescleaning.herokuapp.com/api/v1/shifts/unpaid',
+		url: 'https://katesdemo.herokuapp.com/api/v1/shifts/unpaid',
 		params: {
 			page: req.query.page * 1,
 		},
@@ -117,7 +117,7 @@ exports.unpaidShifts = catchAsync(async (req, res, next) => {
 exports.getShift = catchAsync(async (req, res, next) => {
 	const response = await axios({
 		method: 'GET',
-		url: `https://katescleaning.herokuapp.com/api/v1/shifts/${req.params.id}`,
+		url: `https://katesdemo.herokuapp.com/api/v1/shifts/${req.params.id}`,
 	});
 
 	res.status(200).render('shift', {
@@ -144,7 +144,7 @@ exports.editShift = catchAsync(async (req, res, next) => {
 exports.getClients = catchAsync(async (req, res, next) => {
 	const response = await axios({
 		method: 'GET',
-		url: `https://katescleaning.herokuapp.com/api/v1/users/clients?page=${req.query.page}`,
+		url: `https://katesdemo.herokuapp.com/api/v1/users/clients?page=${req.query.page}`,
 	});
 
 	res.status(200).render('clients', {
@@ -158,7 +158,7 @@ exports.getClients = catchAsync(async (req, res, next) => {
 exports.getCleaners = catchAsync(async (req, res, next) => {
 	const response = await axios({
 		method: 'GET',
-		url: `https://katescleaning.herokuapp.com/api/v1/users/cleaners?page=${req.query.page}`,
+		url: `https://katesdemo.herokuapp.com/api/v1/users/cleaners?page=${req.query.page}`,
 	});
 
 	res.status(200).render('cleaners', {
@@ -174,7 +174,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
 	if (req.params.id) {
 		const response = await axios({
 			method: 'GET',
-			url: `https://katescleaning.herokuapp.com/api/v1/users/${req.params.id}`,
+			url: `https://katesdemo.herokuapp.com/api/v1/users/${req.params.id}`,
 		});
 		singleUser = response.data.data.document;
 	}

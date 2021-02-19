@@ -19,7 +19,7 @@ export const login = async (email, password) => {
 				title: 'Logged in successfully',
 			});
 			window.setTimeout(() => {
-				location.assign('https://katescleaning.herokuapp.com/');
+				location.assign('https://katesdemo.herokuapp.com/');
 			}, 1000);
 		}
 	} catch (err) {
