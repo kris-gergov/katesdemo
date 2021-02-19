@@ -1,0 +1,47 @@
+extends base
+
+block content
+    main.add
+        h2.heading-secondary= title
+        form.form.add_user__form
+            .form__group
+                input#name(type='text' required='required')
+                label.form__label(for='input') Name
+                i.form__bar
+            .form__group
+                input#email(type='email' required='required')
+                label.form__label(for='input') Email
+                i.form__bar
+            if role === 'client'
+                .form__group
+                    input#street(type='text')
+                    label.form__label(for='input') Street
+                    i.form__bar
+                .form__group
+                    input#city(type='text')
+                    label.form__label(for='input') City
+                    i.form__bar
+                .form__group
+                    input#postcode(type='text')
+                    label.form__label(for='input') Post code
+                    i.form__bar
+            if role === 'cleaner'
+                .form__group
+                    input#deposit(type='text')
+                    label.form__label(for='input') Deposit
+                    i.form__bar
+            .form__group
+                input#phone(type='tel')
+                label.form__label(for='input') Phone number
+                i.form__bar
+            .form__group
+                input#password(type='password' required='required')
+                label.form__label(for='input') Password
+                i.form__bar
+            .form__group
+                input#passwordConfirm(type='password' required='required')
+                label.form__label(for='input') Confirm password
+                i.form__bar
+            input#role(type='hidden' value=`${role}`)
+            .form__button
+                input.form__button-submit(type='submit' value=`Add ${role}`)

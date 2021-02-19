@@ -1,0 +1,28 @@
+extends base
+
+block content
+    main.view
+        .card
+            .card__heading
+                h2.heading-secondary= `${singleUser.name} - ${singleUser.role}`
+                .card__heading-buttons
+                    a(href=`/edit_user/${singleUser._id}`)
+                        svg.card__heading-icon.card__heading-icon-edit
+                            use(xlink:href='/img/sprite.svg#icon-edit')
+                    btn.flat-table__link-delete-user(href=`${singleUser._id}`)
+                        svg.card__heading-icon.card__heading-icon-delete
+                            use(xlink:href='/img/sprite.svg#icon-trashcan')
+            hr
+            .card__body
+                .card__body-group
+                    p.card__body-label.card__body-label-user Email:
+                    p.card__body-paragraph= singleUser.email
+                .card__body-group
+                    p.card__body-label.card__body-label-user Address:
+                    p.card__body-paragraph= `${singleUser.address.street}, ${singleUser.address.city}, ${singleUser.address.postcode}`
+                .card__body-group
+                    p.card__body-label.card__body-label-user Phone:
+                    p.card__body-paragraph= singleUser.phone
+                .card__body-group
+                    p.card__body-label.card__body-label-user Deposit:
+                    p.card__body-paragraph= singleUser.deposit

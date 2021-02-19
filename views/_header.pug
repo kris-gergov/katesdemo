@@ -1,0 +1,22 @@
+header.header
+    div.header__logo
+        a(href="/")
+            img(src="/img/logo.png", alt="logo")
+    h2.header__title
+        | Kate&apos;s Cleaning Services
+    nav.user-nav
+        //
+            <div class="user-nav__icon-box">
+            <svg class="user-nav__icon">
+            <use xlink:href="img/sprite.svg#icon-alarm"></use>
+            </svg>
+            <span class="user-nav__notification">13</span>
+            </div>
+        a.user-nav__user-btn(href='/profile')
+            svg.user-nav__icon
+                use(xlink:href='/img/sprite.svg#icon-user')
+            span.user-nav__user-name Katya
+        a.user-nav__user-btn.user-nav__user-btn-logout.user-nav__icon-box-logout
+            span.user-nav__user-logout Logout
+            svg.user-nav__icon
+                use(xlink:href='/img/sprite.svg#icon-log-out')

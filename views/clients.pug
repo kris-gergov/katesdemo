@@ -1,0 +1,34 @@
+extends base
+
+block content
+    main.table
+        h2.heading-secondary= title
+        table.responsive-table(cellspacing='0')
+            thead
+                th(scope='col') Name
+                th(scope='col') Email
+                th(scope='col') Phone
+                th(scope='col') Address
+                th(scope='col')
+                th(scope='col')
+            tbody
+                each client in clients
+                    tr
+                        td(scope='row')
+                            a(href=`/profile/${client._id}`)= client.name
+                        td(data-title='Email')= client.email
+                        td(data-title='Phone')= `0${client.phone}`
+                        td(data-title='Address')= `${client.address.street}, ${client.address.city}, ${client.address.postcode}`
+                        td
+                            a.flat-table__link(href=`/edit_user/${client._id}`)
+                                svg.flat-table__icon.flat-table__icon-edit
+                                    use(xlink:href='/img/sprite.svg#icon-edit')
+                        td
+                            btn.flat-table__link.flat-table__link-delete-user(href=`${client._id}`)
+                                svg.flat-table__icon.flat-table__icon-delete
+                                    use(xlink:href='/img/sprite.svg#icon-trashcan')
+        .pages
+            if page > 1
+                 a(href=`${url}?page=${page-1}`).btn.btn--blue.btn--page Previous page
+            if clients.length > 7
+                a(href=`${url}?page=${page+1}`).btn.btn--blue.btn--page Next page

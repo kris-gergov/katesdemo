@@ -1,0 +1,37 @@
+extends base
+
+block content
+    main.summary
+        h2.heading-secondary Summary
+        form.form.summary__form
+            .form__group
+                input#from(type='datetime-local' required='required')
+                label.form__label(for='input') From
+                i.form__bar
+            .form__group
+                input#to(type='datetime-local' required='required')
+                label.form__label(for='input') To
+                i.form__bar
+            .form__group.form__group-select
+                select#client.form__select
+                    option(selected='' disabled='')
+                    each client in clients
+                        option(value=`${client._id}`)= client.name
+                label.form__label(for='select') Client
+                i.form__bar
+            .form__group.form__group-select
+                select#cleaner.form__select
+                    option(selected='' disabled='')
+                    each cleaner in cleaners
+                        option(value=`${cleaner._id}`)= cleaner.name
+                label.form__label(for='select') Cleaner
+                i.form__bar
+            .form__group.form__group-select
+                select#field.form__select
+                    option(value='outstanding') Outstanding balance
+                    option(value='amount') Amount
+                    option(value='commission') Commission
+                label.form__label(for='select') Field
+                i.form__bar
+                .form__button
+            input.form__button-submit(type='submit' value='Run')

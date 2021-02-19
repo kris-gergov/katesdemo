@@ -1,0 +1,42 @@
+extends base
+
+block content
+    main.table
+        h2.heading-secondary= title
+        table.responsive-table(cellspacing='0')
+            thead
+                th(scope='col') Date
+                th(scope='col') Time
+                th(scope='col') Address
+                th(scope='col') Client
+                th(scope='col') Hours
+                th(scope='col') Amount
+                th(scope='col') Per Hour
+                th(scope='col') Paid
+                th(scope='col')
+                th(scope='col')
+            tbody
+                each shift in shifts
+                    tr
+                        td(scope='row')
+                            a(href=`/shifts/${shift._id}`)= new Date(shift.date).toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                        td(data-title='Time')= new Date(shift.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+                        td(data-title='Address')= `${shift.client.address.street}, ${shift.client.address.city}, ${shift.client.address.postcode}`
+                        td(data-title='Client')= shift.client.name
+                        td(data-title='Hours')= shift.hours
+                        td(data-title='Amount')= `£${shift.amount}`
+                        td(data-title='Per hour')= `£${shift.amountPerHour}`
+                        td(data-title='Paid')= shift.paid ? 'Yes' : 'No'
+                        td
+                            a.flat-table__link(href=`/edit_shift/${shift._id}`)
+                                svg.flat-table__icon.flat-table__icon-edit
+                                    use(xlink:href='/img/sprite.svg#icon-edit')
+                        td
+                            btn.flat-table__link.flat-table__link-delete(href=`${shift._id}`)
+                                svg.flat-table__icon.flat-table__icon-delete
+                                    use(xlink:href='/img/sprite.svg#icon-trashcan')
+        .pages
+            if page > 1
+                 a(href=`${url}?page=${page-1}`).btn.btn--blue.btn--page Previous page
+            if shifts.length > 7
+                a(href=`${url}?page=${page+1}`).btn.btn--blue.btn--page Next page

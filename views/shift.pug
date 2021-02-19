@@ -1,0 +1,53 @@
+extends base
+
+block content
+    main.view
+        .card
+            .card__heading
+                h2.heading-secondary= `${new Date(shift.date).toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'})} ${shift.client.name}`
+                .card__heading-buttons
+                    a(href=`/edit_shift/${shift._id}`)
+                        svg.card__heading-icon.card__heading-icon-edit
+                            use(xlink:href='/img/sprite.svg#icon-edit')
+                    btn.flat-table__link-delete(href=`${shift._id}`)
+                        svg.card__heading-icon.card__heading-icon-delete
+                            use(xlink:href='/img/sprite.svg#icon-trashcan')
+            hr
+            .card__body
+                .card__body-group
+                    p.card__body-label Client:
+                    p.card__body-paragraph= shift.client.name
+                .card__body-group
+                    p.card__body-label Cleaner:
+                    p.card__body-paragraph= shift.cleaner.name
+                .card__body-group
+                    p.card__body-label Address:
+                    p.card__body-paragraph= `${shift.client.address.street}, ${shift.client.address.city}, ${shift.client.address.postcode}`
+                .card__body-group
+                    p.card__body-label Hours:
+                    p.card__body-paragraph= shift.hours
+                .card__body-group
+                    p.card__body-label Date:
+                    p.card__body-paragraph= new Date(shift.date).toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+                .card__body-group
+                    p.card__body-label Starting time:
+                    p.card__body-paragraph= new Date(shift.date).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+                .card__body-group
+                    p.card__body-label Amount:
+                    p.card__body-paragraph= `£${shift.amount}`
+                .card__body-group
+                    p.card__body-label Commission: 
+                    p.card__body-paragraph= ` £${shift.commission}`
+                .card__body-group
+                    p.card__body-label Notes:
+                    p.card__body-paragraph= shift.notes
+                .card__body-group
+                    p.card__body-label Payment method:
+                    p.card__body-paragraph= shift.paymentMethod
+                .card__body-group
+                    p.card__body-label Paid:
+                    p.card__body-paragraph= shift.paid ? 'Yes' : 'No'
+                .card__body-group
+                    p.card__body-label Payment date:
+                    p.card__body-paragraph= shift.paymentDate ? new Date(shift.paymentDate).toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'}) : ''
+                

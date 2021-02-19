@@ -1,0 +1,40 @@
+extends base
+
+block content
+    main.add
+        h2.heading-secondary Edit a user
+        form.form.edit_user__form
+            .form__group
+                input#name(type='text' required='required' value=`${singleUser.name}`)
+                label.form__label(for='input') Name
+                i.form__bar
+            .form__group
+                input#email(type='email' required='required' value=`${singleUser.email}`)
+                label.form__label(for='input') Email
+                i.form__bar
+            if singleUser.role === 'client'
+                .form__group
+                    input#street(type='text' value=`${singleUser.address.street}`)
+                    label.form__label(for='input') Street
+                    i.form__bar
+                .form__group
+                    input#city(type='text' value=`${singleUser.address.city}`)
+                    label.form__label(for='input') City
+                    i.form__bar
+                .form__group
+                    input#postcode(type='text' value=`${singleUser.address.postcode}`)
+                    label.form__label(for='input') Post code
+                    i.form__bar
+            .form__group
+                input#phone(type='number' value=`${singleUser.phone}`)
+                label.form__label(for='input') Phone number
+                i.form__bar
+            if singleUser.role === 'cleaner'
+                .form__group
+                    input#deposit(type='text' value=`${singleUser.deposit ? singleUser.deposit : ''}`)
+                    label.form__label(for='input') Deposit
+                    i.form__bar
+            input#id(type='hidden' value=`${singleUser._id}`)
+            input#role(type='hidden' value=`${role}`)
+            .form__button
+                input.form__button-submit(type='submit' value='Save')

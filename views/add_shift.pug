@@ -1,0 +1,51 @@
+extends base
+
+block content
+    main.add
+        h2.heading-secondary Add a shift
+        form.form.add_shift__form
+            .form__group
+                select#client
+                    option(selected='' disabled='')
+                    each client in clients
+                        option(value=`${client._id}`)= client.name
+                label.form__label(for='select') Client
+                i.form__bar
+            .form__group
+                select#cleaner
+                    option(selected='' disabled='')
+                    each cleaner in cleaners
+                        option(value=`${cleaner._id}`)= cleaner.name
+                label.form__label(for='select') Cleaner
+                i.form__bar
+            .form__group
+                input#date(type='datetime-local' required='required')
+                label.form__label(for='input') Date
+                i.form__bar
+            .form__group
+                input#hours(type='number' required='required')
+                label.form__label(for='input') Hours
+                i.form__bar
+            .form__group
+                input#amount(type='number' required='required')
+                label.form__label(for='input') Amount
+                i.form__bar
+            .form__group
+                input#commission(type='number' required='required')
+                label.form__label(for='input') Commission
+                i.form__bar
+            .form__group
+                label.form__label.form__label-payment(for='radio') Payment method
+                .form__group-radio
+                    .form__radio
+                        input(name='paymentMethod' type='radio' checked='' value='cash')
+                        label.radio-label(for='radio-1') Cash
+                    .form__radio
+                        input(name='paymentMethod' type='radio' value='bank')
+                        label.radio-label(for='radio-2') Bank
+            .form__group
+                textarea#notes(required='required')
+                label.form__label.form__label-notes(for='textarea') Notes
+                i.form__bar
+            .form__button
+                input.form__button-submit(type='submit' value='Add shift')

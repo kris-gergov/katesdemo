@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/icon.css" />
+    <title>Katya</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header__logo">
+                <svg class="header__logo-icon">
+                    <use xlink:href="img/sprite.svg#icon-switch"></use>
+                </svg>
+            </div>
+            <h2 class="header__title">Kate's Cleaning Services</h2>
+            <nav class="user-nav">
+                <div class="user-nav__icon-box">
+                    <svg class="user-nav__icon">
+                        <use xlink:href="img/sprite.svg#icon-alarm"></use>
+                    </svg>
+                    <span class="user-nav__notification">13</span>
+                </div>
+                <div class="user-nav__user">
+                    <svg class="user-nav__icon">
+                        <use xlink:href="img/sprite.svg#icon-user"></use>
+                    </svg>
+                    <span class="user-nav__user-name">Katya</span>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content">
+            <nav class="sidebar">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav__item">
+                        <div class="sidebar-nav__dropdown">
+                            <label class="sidebar-nav__dropdown-title" for="products">
+                                <svg class="sidebar-nav__icon sidebar-nav__icon-dropdown">
+                                    <use xlink:href="img/sprite.svg#icon-plus"></use>
+                                </svg>Add <i class="arrow arrow_right"></i>
+                            </label>
+                            <input type="checkbox" id="products" />
+                            <ul class="sidebar-nav__dropdown-submenu">
+                                <li>
+                                    <a class="sidebar-nav__link" href="add_shift.html">- Shift</a>
+                                </li>
+                                <li>
+                                    <a class="sidebar-nav__link" href="add_client.html">- Client</a>
+                                </li>
+                                <li>
+                                    <a class="sidebar-nav__link" href="add_cleaner.html">- Cleaner</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="sidebar-nav__item">
+                        <a href="#" class="sidebar-nav__link">
+                            <svg class="sidebar-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-forward"></use>
+                            </svg>
+                            <span>Upcoming Shifts</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav__item">
+                        <a href="#" class="sidebar-nav__link">
+                            <svg class="sidebar-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-reply"></use>
+                            </svg>
+                            <span>Past Shifts</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav__item">
+                        <a href="#" class="sidebar-nav__link">
+                            <svg class="sidebar-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-chart"></use>
+                            </svg>
+                            <span>Summary</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar__legal">
+                    &copy; 2020 by Kris. All rights reserved
+                </div>
+            </nav>
+            <main class="view">
+                <div class="card card-column">
+                    <div class="card__heading">
+                        <h2 class="heading-secondary">Kris Gergov</h2>
+                        <div class="card__heading-buttons">
+                            <svg class="card__heading-icon card__heading-icon-edit">
+                                <use xlink:href="img/sprite.svg#icon-edit"></use>
+                            </svg>
+                            <svg class="card__heading-icon card__heading-icon-delete">
+                                <use xlink:href="img/sprite.svg#icon-trashcan"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="card__body card__body-nowrap">
+                        <div class="card__body-group">
+                            <p class="card__body-label">Email:</p>
+                            <p class="card__body-paragraph">test@gmail.com</p>
+                        </div>
+                        <div class="card__body-group">
+                            <p class="card__body-label">Phone:</p>
+                            <p class="card__body-paragraph">1234365457234</p>
+                        </div>
+                        <div class="card__body-group">
+                            <p class="card__body-label">Address:</p>
+                            <p class="card__body-paragraph">
+                                42 Fairthorn Road, SE7 7RL, London
+                            </p>
+                        </div>
+                        <div class="card__body-group">
+                            <p class="card__body-label">Role:</p>
+                            <p class="card__body-paragraph">Cleaner</p>
+                        </div>
+                        <div class="card__body-group">
+                            <p class="card__body-label">Shifts:</p>
+                            <a href="#" class="card__body-link outline-btn">View all shifts</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </main>
+    </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

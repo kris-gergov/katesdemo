@@ -1,0 +1,30 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet')
+    link(rel='stylesheet' href='/css/style.css')
+    title Katya
+
+body
+    .login
+        .login__header
+            h1.heading-primary
+                span.heading-primary--main Kate&apos;s
+                span.heading-primary--sub Cleaning Services
+        form.login__form  
+            h2.heading-secondary
+                | Welcome
+            .login__form__group
+                input#email.login__form__input(type='email' required='')
+                span.login__form__span(data-placeholder='Email')
+            .login__form__group
+                input#password.login__form__input(type='password' required='')
+                span.login__form__span(data-placeholder='Password')
+            .login__form__group
+                input.btn.btn--blue.btn--animated(type='submit' value='Login')
+
+    //- script(type='text/javascript' src='/js/jquery-3.5.1.min.js')
+    //- script(type='module' src='/js/login.js')
+    //- script(src='/js/main.js')
+    script(src='/js/bundle.js')

@@ -1,0 +1,34 @@
+extends base
+
+block content
+    main.table
+        h2.heading-secondary= title
+        table.responsive-table(cellspacing='0')
+            thead
+                th(scope='col') Name
+                th(scope='col') Email
+                th(scope='col') Phone
+                th(scope='col') Deposit
+                th(scope='col')
+                th(scope='col')
+            tbody
+                each cleaner in cleaners
+                    tr
+                        td(scope='row')
+                            a(href=`/profile/${cleaner._id}`)= cleaner.name
+                        td(data-title='Email')= cleaner.email
+                        td(data-title='Phone')= `0${cleaner.phone}`
+                        td(data-title='Deposit')= cleaner.deposit
+                        td
+                            a.flat-table__link(href=`/edit_user/${cleaner._id}`)
+                                svg.flat-table__icon.flat-table__icon-edit
+                                    use(xlink:href='/img/sprite.svg#icon-edit')
+                        td
+                            btn.flat-table__link.flat-table__link-delete-user(href=`${cleaner._id}`)
+                                svg.flat-table__icon.flat-table__icon-delete
+                                    use(xlink:href='/img/sprite.svg#icon-trashcan')
+        .pages
+            if page > 1
+                 a(href=`${url}?page=${page-1}`).btn.btn--blue.btn--page Previous page
+            if cleaners.length > 7
+                a(href=`${url}?page=${page+1}`).btn.btn--blue.btn--page Next page

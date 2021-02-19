@@ -1,0 +1,54 @@
+nav.sidebar
+    ul.sidebar-nav
+        if user.role === 'admin'
+            li.sidebar-nav__item
+                .sidebar-nav__dropdown
+                    label.sidebar-nav__dropdown-title(for='products')
+                        svg.sidebar-nav__icon.sidebar-nav__icon-dropdown
+                            use(xlink:href='/img/sprite.svg#icon-plus')
+                        | Add 
+                        i.arrow.arrow_right
+                    input#products(type='checkbox')
+                    ul.sidebar-nav__dropdown-submenu
+                        li
+                            a.sidebar-nav__link(href='/add_shift') - Shift
+                        li
+                            a.sidebar-nav__link(href='/add_client') - Client
+                        li
+                            a.sidebar-nav__link(href='/add_cleaner') - Cleaner
+        li.sidebar-nav__item
+            .sidebar-nav__dropdown
+                label.sidebar-nav__dropdown-title(for='shifts')
+                    svg.sidebar-nav__icon.sidebar-nav__icon-dropdown
+                        use(xlink:href='/img/sprite.svg#icon-forward')
+                    | Shifts 
+                    i.arrow.arrow_right
+                input#shifts(type='checkbox')
+                ul.sidebar-nav__dropdown-submenu
+                    li
+                        a.sidebar-nav__link(href='/upcoming_shifts?page=1') - Upcoming
+                    li
+                        a.sidebar-nav__link(href='/past_shifts?page=1') - Past
+                    li
+                        a.sidebar-nav__link(href='/unpaid_shifts?page=1') - Unpaid
+        li.sidebar-nav__item
+            .sidebar-nav__dropdown
+                label.sidebar-nav__dropdown-title(for='users')
+                    svg.sidebar-nav__icon.sidebar-nav__icon-dropdown
+                        use(xlink:href='/img/sprite.svg#icon-users')
+                    | Users 
+                    i.arrow.arrow_right
+                input#users(type='checkbox')
+                ul.sidebar-nav__dropdown-submenu
+                    li
+                        a.sidebar-nav__link(href='/clients?page=1') - Clients
+                    li
+                        a.sidebar-nav__link(href='/cleaners?page=1') - Cleaners
+      
+        li.sidebar-nav__item.sidebar-nav__item-summary
+            a.sidebar-nav__link(href='/summary')
+                svg.sidebar-nav__icon
+                    use(xlink:href='/img/sprite.svg#icon-chart')
+                span Summary
+    .sidebar__legal
+        | &copy; 2020 by Kris. All rights reserved

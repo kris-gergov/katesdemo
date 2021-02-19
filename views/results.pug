@@ -1,0 +1,15 @@
+extends base
+
+block content
+    main.view
+        .card
+            .card__heading
+                h2.heading-secondary= summary.range
+            hr
+            .card__body
+                .card__body-group
+                    p.card__body-label.card__body-label-user Number of shifts:
+                    p.card__body-paragraph= summary.num
+                .card__body-group
+                    p.card__body-label.card__body-label-user= `${summary.field}:`
+                    p.card__body-paragraph= summary.total
