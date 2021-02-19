@@ -23,6 +23,7 @@ export const login = async (email, password) => {
 			}, 1000);
 		}
 	} catch (err) {
+		console.log(err.response.data);
 		toast.fire({
 			icon: 'error',
 			title: err.response.data,
