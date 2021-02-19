@@ -19,6 +19,9 @@ export const delete_shift = async id => {
 			}, 2000);
 		}
 	} catch (err) {
-		showAlert('error', err.response.data);
+		toast.fire({
+			icon: 'error',
+			title: err.response.data,
+		});
 	}
 };

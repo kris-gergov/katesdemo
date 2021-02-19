@@ -28,6 +28,9 @@ export const add_shift = async (client, cleaner, date, hours, amount, paymentMet
 			}, 2000);
 		}
 	} catch (err) {
-		showAlert('error', err.response.data);
+		toast.fire({
+			icon: 'error',
+			title: err.response.data,
+		});
 	}
 };

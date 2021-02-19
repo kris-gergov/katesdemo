@@ -36,6 +36,9 @@ export const edit_shift = async (client, cleaner, date, hours, amount, paymentMe
 			}, 2000);
 		}
 	} catch (err) {
-		showAlert('error', err.response.data);
+		toast.fire({
+			icon: 'error',
+			title: err.response.data,
+		});
 	}
 };

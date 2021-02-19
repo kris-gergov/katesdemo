@@ -39,6 +39,9 @@ export const add_user = async (name, email, street, city, postcode, phone, depos
 			// }, 1500);
 		}
 	} catch (err) {
-		showAlert('error', err.response.data);
+		toast.fire({
+			icon: 'error',
+			title: err.response.data,
+		});
 	}
 };

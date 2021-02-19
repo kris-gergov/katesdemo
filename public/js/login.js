@@ -23,7 +23,10 @@ export const login = async (email, password) => {
 			}, 1000);
 		}
 	} catch (err) {
-		showAlert('error', err.response.data);
+		toast.fire({
+			icon: 'error',
+			title: err.response.data,
+		});
 	}
 };
 
@@ -44,6 +47,9 @@ export const logout = async () => {
 			}, 1000);
 		}
 	} catch (err) {
-		showAlert('error', err.response.data);
+		toast.fire({
+			icon: 'error',
+			title: err.response.data,
+		});
 	}
 };

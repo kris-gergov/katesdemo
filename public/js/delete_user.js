@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from 'axios';
-import { showAlert } from './alerts';
+import { toast } from './alerts';
 
 export const delete_user = async id => {
 	try {
@@ -10,12 +10,18 @@ export const delete_user = async id => {
 		});
 
 		if (res.data.status === 'success') {
-			showAlert('success', 'User deleted successfully');
+			toast.fire({
+				icon: 'success',
+				title: 'User deleted successfully',
+			});
 			window.setTimeout(() => {
 				location.reload();
 			}, 1500);
 		}
 	} catch (err) {
-		showAlert('error', err.response.data);
+		toast.fire({
+			icon: 'error',
+			title: err.response.data,
+		});
 	}
 };
