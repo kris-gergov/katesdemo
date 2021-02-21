@@ -20,7 +20,7 @@ export const login = async (email, password) => {
 			});
 			window.setTimeout(() => {
 				location.assign('https://katesdemo.herokuapp.com/');
-			}, 1000);
+			}, 1500);
 		}
 	} catch (err) {
 		console.log(err.response.data);
@@ -45,7 +45,7 @@ export const logout = async () => {
 			});
 			window.setTimeout(() => {
 				location.assign('/login');
-			}, 1000);
+			}, 1500);
 		}
 	} catch (err) {
 		toast.fire({

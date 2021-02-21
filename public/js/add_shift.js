@@ -25,7 +25,7 @@ export const add_shift = async (client, cleaner, date, hours, amount, paymentMet
 			});
 			window.setTimeout(() => {
 				location.assign('/');
-			}, 2000);
+			}, 1500);
 		}
 	} catch (err) {
 		toast.fire({

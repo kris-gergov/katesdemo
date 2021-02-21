@@ -33,7 +33,7 @@ export const edit_shift = async (client, cleaner, date, hours, amount, paymentMe
 			});
 			window.setTimeout(() => {
 				location.assign(`/shifts/${id}`);
-			}, 2000);
+			}, 1500);
 		}
 	} catch (err) {
 		toast.fire({

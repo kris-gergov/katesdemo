@@ -33,10 +33,9 @@ export const add_user = async (name, email, street, city, postcode, phone, depos
 				icon: 'success',
 				title: 'User added successfully',
 			});
-			location.assign('/');
-			// window.setTimeout(() => {
-
-			// }, 1500);
+			window.setTimeout(() => {
+				location.assign('/');
+			}, 1500);
 		}
 	} catch (err) {
 		toast.fire({

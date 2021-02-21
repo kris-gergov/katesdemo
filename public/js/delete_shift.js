@@ -16,7 +16,7 @@ export const delete_shift = async id => {
 			});
 			window.setTimeout(() => {
 				location.reload();
-			}, 2000);
+			}, 1500);
 		}
 	} catch (err) {
 		toast.fire({
