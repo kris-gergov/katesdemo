@@ -38,7 +38,7 @@ export const add_user = async (name, email, street, city, postcode, phone, depos
 			}, 1500);
 		}
 	} catch (err) {
-		console.log(err);
+		console.log(err.response);
 		toast.fire({
 			icon: 'error',
 			title: err.response.data.message,
