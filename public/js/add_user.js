@@ -40,7 +40,7 @@ export const add_user = async (name, email, street, city, postcode, phone, depos
 	} catch (err) {
 		toast.fire({
 			icon: 'error',
-			title: err.response.data,
+			title: err.response.data.message,
 		});
 	}
 };
