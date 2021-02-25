@@ -22,7 +22,6 @@ const shiftSchema = new mongoose.Schema(
 			type: Number,
 			required: [true, 'Hours is required'],
 			min: 0,
-			max: 12,
 		},
 		amount: {
 			type: Number,
