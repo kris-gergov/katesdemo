@@ -5,6 +5,8 @@ const Shift = require('../models/shiftModel');
 const catchAsync = require('../utils/catchAsync');
 
 exports.home = catchAsync(async (req, res, next) => {
+	console.log(req);
+	console.log(res);
 	const upcoming = await axios({
 		method: 'GET',
 		url: 'https://katesdemo.herokuapp.com/api/v1/shifts/upcoming',
