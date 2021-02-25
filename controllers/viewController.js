@@ -5,8 +5,6 @@ const Shift = require('../models/shiftModel');
 const catchAsync = require('../utils/catchAsync');
 
 exports.home = catchAsync(async (req, res, next) => {
-	console.log(req);
-	console.log(res);
 	const upcoming = await axios({
 		method: 'GET',
 		url: 'https://katesdemo.herokuapp.com/api/v1/shifts/upcoming',
@@ -26,6 +24,7 @@ exports.home = catchAsync(async (req, res, next) => {
 	res.status(200).render('index', {
 		upcoming_shifts: upcoming.data.data.docs,
 		past_shifts: past.data.data.docs,
+		user: res.locals.user.name,
 	});
 });
 
@@ -42,6 +41,7 @@ exports.addShift = catchAsync(async (req, res, next) => {
 		title: 'Add a shift',
 		clients: clients,
 		cleaners: cleaners,
+		user: res.locals.user.name,
 	});
 });
 
@@ -49,6 +49,7 @@ exports.addUser = (req, res, next) => {
 	res.status(200).render('add_user', {
 		title: `Add a ${req.role}`,
 		role: req.role,
+		user: res.locals.user.name,
 	});
 };
 
@@ -62,6 +63,7 @@ exports.getShifts = catchAsync(async (req, res, next) => {
 		title: 'All shifts',
 		shifts: response.data.data.docs,
 		page: req.query.page * 1,
+		user: res.locals.user.name,
 	});
 });
 
@@ -79,6 +81,7 @@ exports.upcomingShifts = catchAsync(async (req, res, next) => {
 		shifts: response.data.data.docs,
 		page: req.query.page * 1,
 		url: req._parsedUrl.pathname,
+		user: res.locals.user.name,
 	});
 });
 
@@ -96,6 +99,7 @@ exports.pastShifts = catchAsync(async (req, res, next) => {
 		shifts: response.data.data.docs,
 		page: req.query.page * 1,
 		url: req._parsedUrl.pathname,
+		user: res.locals.user.name,
 	});
 });
 
@@ -113,6 +117,7 @@ exports.unpaidShifts = catchAsync(async (req, res, next) => {
 		shifts: response.data.data.docs,
 		page: req.query.page * 1,
 		url: req._parsedUrl.pathname,
+		user: res.locals.user.name,
 	});
 });
 
@@ -125,6 +130,7 @@ exports.getShift = catchAsync(async (req, res, next) => {
 	res.status(200).render('shift', {
 		title: 'Single shifts',
 		shift: response.data.data.shift,
+		user: res.locals.user.name,
 	});
 });
 
@@ -140,6 +146,7 @@ exports.editShift = catchAsync(async (req, res, next) => {
 		shift: shift,
 		clients: filteredClients,
 		cleaners: filteredCleaners,
+		user: res.locals.user.name,
 	});
 });
 
@@ -154,6 +161,7 @@ exports.getClients = catchAsync(async (req, res, next) => {
 		clients: response.data.data.docs,
 		page: req.query.page * 1,
 		url: req._parsedUrl.pathname,
+		user: res.locals.user.name,
 	});
 });
 
@@ -168,6 +176,7 @@ exports.getCleaners = catchAsync(async (req, res, next) => {
 		cleaners: response.data.data.docs,
 		page: req.query.page * 1,
 		url: req._parsedUrl.pathname,
+		user: res.locals.user.name,
 	});
 });
 
@@ -184,6 +193,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
 	res.status(200).render('user', {
 		title: 'Single user',
 		singleUser: singleUser,
+		user: res.locals.user.name,
 	});
 });
 
@@ -193,6 +203,7 @@ exports.editUser = catchAsync(async (req, res, next) => {
 	res.status(200).render('edit_user', {
 		title: 'Edit a user',
 		singleUser: singleUser,
+		user: res.locals.user.name,
 	});
 });
 
@@ -203,6 +214,7 @@ exports.summary = catchAsync(async (req, res, next) => {
 		title: 'Summary',
 		clients: clients,
 		cleaners: cleaners,
+		user: res.locals.user.name,
 	});
 });
 
